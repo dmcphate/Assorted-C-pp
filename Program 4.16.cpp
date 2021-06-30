@@ -1,7 +1,3 @@
-// Dustin McPhate
-// Comp 1060
-// Program 4.16
-
 # include <iostream>
 using namespace std;
 
