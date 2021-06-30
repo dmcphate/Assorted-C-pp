@@ -1,0 +1,211 @@
+#include "DarkGDK.h"
+
+//1 = up 2 = right 3 = down 4 = left
+
+int PlayerD = 1;
+
+void DarkGDK ()
+
+
+
+{
+
+	dbSyncOn();
+	dbSyncRate (60);
+	dbDisableEscapeKey ();
+
+	dbSetDisplayMode(1024,720,32);
+
+	dbSetImageColorKey(255,0,0);
+
+//Basic game slements i.e. player, bullet, background
+	dbLoadImage("background1.bmp",2);
+
+	dbLoadImage("sprite2.bmp",1);
+
+	dbLoadImage("bullet.bmp",3);
+	
+	dbLoadImage("Collision.bmp",4);
+
+//Invisible barrers for collision purposes
+     dbLoadImage("northwall.bmp",5);
+	dbLoadImage("eastwall.bmp",6);
+	dbLoadImage("southwall.bmp",7);
+	dbLoadImage("westwall.bmp",8);
+//
+dbSprite (5,0,0,2);
+dbSprite (6,1024,0,2);
+dbSprite (7,0,768,2);
+dbSprite (8,1024,0,2);
+
+	dbSprite (2,0,0,2);
+
+	dbSprite (1,200,200,1);
+
+	int spriteX, spriteY;
+	spriteX = dbSpriteX(1) + 92;
+	spriteY = dbSpriteY(1) + 27;
+
+	dbSprite (3,spriteX,spriteY,3);
+	
+	
+	while (LoopGDK ())
+	{
+		if(dbRightKey () == 1)
+		{
+			PlayerD = 2;
+			dbRotateSprite(1,90);
+			dbMoveSprite(1,2);
+		    dbRotateSprite (1,0); 
+//sprite check
+if (dbSpriteCollision(1,5))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,6))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,7))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,8))
+{
+	dbMoveSprite(1,0);
+
+}
+		}		
+	   if(dbLeftKey () == 1)
+		{
+			PlayerD = 4;
+			dbRotateSprite(1,270);
+			dbMoveSprite(1,2);
+		    dbRotateSprite (1,0); 
+//sprite check
+if (dbSpriteCollision(1,5))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,6))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,7))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,8))
+{
+	dbMoveSprite(1,0);
+
+}
+		}		
+	   if(dbUpKey () == 1)
+		{
+				PlayerD = 1;
+			dbRotateSprite(1,0);
+			dbMoveSprite(1,2);
+		    dbRotateSprite (1,0); 
+//sprite check
+if (dbSpriteCollision(1,5))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,6))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,7))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,8))
+{
+	dbMoveSprite(1,0);
+
+}
+		}		
+		if(dbDownKey () == 1)
+		{
+			PlayerD = 3;
+			dbRotateSprite(1,180);
+			dbMoveSprite(1,2);
+		    dbRotateSprite (1,0); 
+//sprite check
+if (dbSpriteCollision(1,5))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,6))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,7))
+{
+	dbMoveSprite(1,0);
+
+}
+if (dbSpriteCollision(1,8))
+{
+	dbMoveSprite(1,0);
+
+}
+		}		
+
+		if(dbRightKey () == 1)
+		{
+			dbRotateSprite(3,90);
+			dbMoveSprite(3,2);
+		    dbRotateSprite (3,0);  
+		}		
+	   if(dbLeftKey () == 1)
+		{
+			dbRotateSprite(3,270);
+			dbMoveSprite(3,2);
+		    dbRotateSprite (3,0); 
+		}		
+	   if(dbUpKey () == 1)
+		{
+			dbRotateSprite(3,0);
+			dbMoveSprite(3,2);
+		    dbRotateSprite (3,0); 
+		}		
+		if(dbDownKey () == 1)
+		{
+			dbRotateSprite(3,180);
+			dbMoveSprite(3,2);
+		    dbRotateSprite (3,0); 
+		}	
+
+		if(dbSpaceKey () == 1)
+		{
+			dbMoveSprite(3,300);
+		}
+
+		if(dbEscapeKey() == 1)
+		{
+			break;
+		}
+		dbSync ();
+
+	}
+
+	
+	return;
+
+	dbWaitKey();
+
+	
+}
