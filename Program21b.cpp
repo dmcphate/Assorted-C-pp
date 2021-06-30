@@ -1,6 +1,4 @@
-//CSC 1060 Spring 2011
-//Program # 18 Pg 155
-//Dustin McPhate
+
 
 #include <iostream>
 #include <fstream >
