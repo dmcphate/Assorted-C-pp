@@ -1,7 +1,3 @@
-//CSC 1060 Spring 2011
-//Program # 21a Pg 155
-//Dustin McPhate
-
 #include <iostream>
 #include <fstream >
 using namespace std;
