@@ -1,6 +1,3 @@
-//Dustin McPhate
-//Comp 1060 program 6.5
-
 #include <iostream>
 using namespace std;
 
